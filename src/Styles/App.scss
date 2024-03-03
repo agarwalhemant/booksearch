@@ -1,0 +1,38 @@
+@use '@carbon/react';
+@use '@carbon/react/scss/spacing' as *;
+
+.App {
+  text-align: left;
+  margin-top: 15px;
+}
+
+.WelcomeMsg {
+  margin-bottom: $spacing-05;
+}
+
+.search-container {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.text-input {
+  margin-top: $spacing-03;
+}
+
+#search-button {
+  margin-top: $spacing-03;
+  font-weight: bold;
+}
+
+.Output {
+ text-align: left;
+}
+
+.list-items {
+  text-decoration: none;
+  display: block;
+  margin: $spacing-05 0;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: $spacing-05;
+  background-color: #f4f4f4;
+}
