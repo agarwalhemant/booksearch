@@ -13,7 +13,7 @@ const root = createRoot(container);
 
 const router = createBrowserRouter([
   {
-    path: '/booksearch',
+    path: '/',
     element: <App />,
     errorElement: <ErrorPage />
   },
