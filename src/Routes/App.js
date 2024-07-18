@@ -20,27 +20,22 @@ export default function App() {
     setBookname(e.target.value);
   }
 
-  function handleClick() {
-
+  async function handleClick() {
     let encodedBookName = encodeURIComponent(bookname);
-
-
     console.log(encodedBookName, bookname);
-
+  
     setLoading(true);
-
-    wretch(`https://openlibrary.org/search.json?q=${encodedBookName}&limit=15`)
-      .get()
-      .json()
-      .then((data) => {
-        setData(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(`This is an HTTP error: The status is ${error.message}`);
-        setLoading(false);
-      });
+  
+    try {
+      let jsonObject = await wretch(`https://openlibrary.org/search.json?q=${encodedBookName}&limit=15`).get().json();
+      setData(jsonObject);
+    } catch (error) {
+      setError(`This is an HTTP error: The status is ${error.message}`);
+    } finally {
+      setLoading(false);
+    }
   }
+  
 
 
   if (data) {
